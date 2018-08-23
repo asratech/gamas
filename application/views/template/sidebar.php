@@ -16,7 +16,7 @@
     <!-- Drop Down Menu Transaksi Active -->
     <ul class="collapsible collapsible-accordion">
       <li>
-      <div class="collapsible-header"><i class="material-icons">supervised_user_circle</i>Transaksi<i class="material-icons right black-text" style="margin-right:0;">arrow_drop_down</i></div>
+      <div class="collapsible-header"><i class="material-icons">move_to_inbox</i>Transaksi<i class="material-icons right black-text" style="margin-right:0;">arrow_drop_down</i></div>
         <div class="collapsible-body">
           <ul>
             <li><a class="waves-effect" href="<?php echo base_url('events'); ?>"><i class="material-icons">event</i>Input Perizinan</a></li>
@@ -43,6 +43,7 @@
         </div>
       </li>
     </ul>
+  <!-- Pindah ke menu floating
       <li>
         <div class="divider"></div>
       </li>
@@ -57,6 +58,7 @@
     <li>
       <a class="waves-effect"  href="<?php echo base_url('auth/logout'); ?>"><i class="material-icons">exit_to_app</i>Keluar</a>
     </li>
-    
+      -->
   </ul>
+
 </aside>

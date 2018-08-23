@@ -1,3 +1,4 @@
+<marquee> Selamat Datang di GA-MAS (GA Management System) adalah aplikasi untuk memudahkan pekerjaan Divisi GA</marquee>
 <div class="row">
     <div class="col s12 m6">
         <div class="card blue">
