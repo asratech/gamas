@@ -1,12 +1,15 @@
-# codeigniter-alumni-app
-Aplikasi alumni menggunakan codeigniter dan materialize css framework. Untuk melihat step-by-step tutorial pembuatan aplikasi ini bisa mengunjungi Blog KCDEV di https://kcdev.id/tutorial-codeigniter-membuat-aplikasi-sederhana-part-0/.
+# GA-Mas (GA Management System)
+Aplikasi Management GA (General Affair) untuk membantu divisi GA dalam me-Management pekerjaan seperti :
+1. Perizinan
+2. Kendaraan Operasional
+3. Dll.
 
-Jika dirasa bermanfaat, silahkan bagikan dan jangan lupa kasih stars yaa. Bisa juga mengunjungi linkedin saya dan memberikan rekomendasi keahlian. Terima Kasih :)
-https://www.linkedin.com/in/nafplann
+Jika ada yang ingin mengembangkan dipersilahkan, saya akan terus update.
 
 ## License
 Released under the terms of the MIT license.
 
-## We are supported by
-[![Browserstack Logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT437YIzg49G4ClM-eRCliFUc-TqU3oeOPP1G8vrh1j9onhpHvY)](https://browserstack.com)
-[![Balsamiq Mockup Logo](https://shortcutkey.net/wp-content/uploads/2017/12/logo-balsamiq-300x149.png)](https://balsamiq.com/)
+## Credit
+- Materialize Theme
+- Thanks for KCDEV.id
+- Developer by Ahmad Sopian
