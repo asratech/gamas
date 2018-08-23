@@ -38,7 +38,7 @@
         <div class="collapsible-header"><i class="material-icons">build</i>Master<i class="material-icons right black-text" style="margin-right:0;">arrow_drop_down</i></div>
           <div class="collapsible-body">
             <ul>
-              <li><a class="waves-effect" href="<?php echo base_url('users'); ?>" onclick="Materialize.toast('Menu Master User Aktif',6000)"><i class="material-icons">people</i>Master Users</a></li>
+              <li><a class="waves-effect" href="<?php echo base_url('users'); ?>"><i class="material-icons">people</i>Master Users</a></li>
             </ul>
         </div>
       </li>
