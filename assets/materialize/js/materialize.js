@@ -7183,9 +7183,9 @@ DatePicker.defaults = (function( prefix ) {
         weekdaysLetter: [ 'S', 'M', 'T', 'W', 'T', 'F', 'S' ],
 
         // Today and clear
-        today: 'Today',
-        clear: 'Clear',
-        close: 'Close',
+        today: 'Hari ini',
+        clear: 'Hapus',
+        close: 'Oke',
 
         // The format to show on the `input` element
         format: 'd mmmm, yyyy',
@@ -7763,7 +7763,6 @@ Picker.extend( 'pickadate', DatePicker )
       $(this).trigger('carouselSet', [n]);
     }
   };
-
 
     $.fn.carousel = function(methodOrOptions) {
       if ( methods[methodOrOptions] ) {

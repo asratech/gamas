@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>SIMAPER SBT</title>
+    <title>SBT GA-MAS</title>
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="<?php echo base_url('assets/materialize/css/materialize.min.css'); ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -26,14 +26,14 @@
 
   <body>
     <nav class="light-blue lighten-1" role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="<?php echo base_url(); ?>" class="brand-logo">SIMAPER Suzuki</a></div>
+      <div class="nav-wrapper container"><a id="logo-container" href="<?php echo base_url(); ?>" class="brand-logo">SBT GA-MAS</a></div>
     </nav>
         
     <main>
       <div class="container login-box">
         <div class="card z-depth-5">
           <div class="card-content">
-            <span class="card-title">Login</span>
+            <span class="card-title">Login to SBT GA-MAS</span>
             <div class="row">
               <form class="col s12" id="login-form" method="post" action="<?php echo base_url('auth/login'); ?>">
                 <div class="row">
@@ -45,16 +45,18 @@
                   </div>
                   <?php endif; ?>
                   <div class="input-field col m12">
+                    <i class="material-icons prefix">account_circle</i>
                     <input id="username" type="text" class="validate" name="username">
                     <label for="username">Username</label>
                   </div>
                   <div class="input-field col m12">
+                    <i class="material-icons prefix">vpn_key</i>
                     <input id="password" type="password" class="validate" name="password">
                     <label for="password" data-error="Password yang anda masukkan salah">Password</label>
                   </div>
                   <div class="input-field col m12 right-align">
-                    <button class="btn waves-effect waves-light btn-login amber" type="submit" name="submit" value="login">
-                      Masuk <i class="material-icons right">send</i>
+                    <button class="btn waves-effect waves-light btn-login green" type="submit" name="submit" value="login">
+                      LOGIN <i class="material-icons right">send</i>
                     </button>
                   </div>
                 </div>
@@ -68,7 +70,7 @@
     <footer class="page-footer white">
       <div class="footer-copyright  blue darken-3">
         <div class="container center-align">
-          Copyright &copy; <a class="white-text text-lighten-3" href="#">IT SBT Group</a>
+          SBT GA Management System (GA-MAS) Copyright &copy; <a class="white-text text-lighten-3" href="#">IT SBT Group</a>
         </div>
       </div>
     </footer>
