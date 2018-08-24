@@ -13,7 +13,7 @@
               </div>
             </div>
           <?php endif; ?>
-          <table class="bordered highlight">
+          <table id="data-table" class="mdl-data-table" style="width:100%">
               <thead>
                   <tr>
                       <th>No</th>

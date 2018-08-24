@@ -15,7 +15,8 @@
 			<nav class="light-blue lighten-1 navbar-fixed" role="navigation">
 				<div class="nav-wrapper container">
 					<a id="logo-container" href="<?php echo base_url(); ?>" class="brand-logo center">
-						<img src="<?php echo base_url('assets/images/logo.png.gg'); ?>" alt="GA-MAS">
+						<!-- <img src="<?php echo base_url('assets/images/logo.png'); ?>" alt="GA-MAS"> -->
+						<h5>G.A Management System</h5>
 					</a>
 					<a href="#" data-activates="sidenav" class="button-collapse"><i class="material-icons">menu</i></a>
 				</div>

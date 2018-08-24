@@ -39,6 +39,7 @@
           <div class="collapsible-body">
             <ul>
               <li><a class="waves-effect" href="<?php echo base_url('users'); ?>"><i class="material-icons">people</i>Master Users</a></li>
+              <li><a class="waves-effect" href="<?php echo base_url('cabang'); ?>"><i class="material-icons">account_balance</i>Master Cabang</a></li>
             </ul>
         </div>
       </li>
