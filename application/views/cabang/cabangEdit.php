@@ -21,7 +21,7 @@
             </div>
           <?php endif; ?>
           <div class="input-field col s12 m6">
-              <input id="namacabang" name="namacabang" type="text" value="<?php echo $cabang->namacabang; ?>">
+              <input id="namacabang" name="namacabang" style="text-transform:uppercase" type="text" value="<?php echo $cabang->namacabang; ?>">
               <label for="namacabang" class="">Nama Cabang</label>
           </div>
           <div class="input-field col s12 m6">

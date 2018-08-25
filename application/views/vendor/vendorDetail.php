@@ -7,27 +7,28 @@
       <div class="card-content">
         <div class="row">
           <div class="input-field col s12 m6">
-              <input readonly id="nama_perusahaan" name="nama_perusahaan" type="text" value="<?php echo $loker->nama_perusahaan; ?>">
-              <label for="nama_perusahaan" class="">Nama Perusahaan</label>
+              <input readonly id="nama_vendor" name="nama_vendor" type="text" value="<?php echo $vendor->nama_vendor; ?>">
+              <label for="nama_vendor" class="">Nama Vendor</label>
+          </div>
+          <div class="input-field col s12 m12">
+              <input readonly id="telepon_vendor" name="contact" type="text" value="<?php echo $vendor->telepon_vendor; ?>">
+              <label for="contact" class="">Telepon Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <input readonly id="contact" name="contact" type="text" value="<?php echo $loker->contact; ?>">
-              <label for="contact" class="">Contact Person</label>
+              <input readonly id="email_vendor" name="email_vendor" type="text" value="<?php echo $vendor->email_vendor; ?>">
+              <label for="tanggal_berakhir" class="">Email Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <input readonly id="tanggal_berakhir" name="tanggal_berakhir" type="text" value="<?php echo $loker->tanggal_berakhir; ?>">
-              <label for="tanggal_berakhir" class="">Tanggal Berakhir</label>
-          </div>
-          <div class="input-field col s12 m6">
-              <input readonly id="posisi" name="posisi" type="text" value="<?php echo $loker->posisi; ?>">
-              <label for="posisi" class="">Posisi</label>
+              <input readonly id="nama_pic" name="nama_pic" type="text" value="<?php echo $vendor->nama_pic; ?>">
+              <label for="nama_pic" class="">Nama PIC</label>
           </div>
           <div class="col s12 m12">
-              <label for="deskripsi">Deskripsi</label>
-              <?php echo $loker->deskripsi; ?>
+              <label for="alamat_vendor">Alamat Vendor</label>
+              <?php echo $vendor->alamat_vendor; ?>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<input type="button" class="btn red waves-effect waves-green" value="« Kembali" onclick="history.back(-1)" />

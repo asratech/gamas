@@ -21,27 +21,28 @@
             </div>
           <?php endif; ?>
           <div class="input-field col s12 m6">
-              <input id="nama_perusahaan" name="nama_perusahaan" type="text" value="<?php echo set_value('nama_perusahaan'); ?>">
-              <label for="nama_perusahaan" class="">Nama Perusahaan</label>
+              <input id="nama_vendor" name="nama_vendor" style="text-transform:uppercase" type="text" value="<?php echo set_value('nama_vendor'); ?>">
+              <label for="nama_vendor" class="">Nama Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <input id="contact" name="contact" type="text" value="<?php echo set_value('contact'); ?>">
-              <label for="contact" class="">Contact Person</label>
+              <textarea id="alamat_vendor" name="alamat_vendor" class="materialize-textarea" style="text-transform:uppercase" value="<?php echo set_value('alamat_vendor'); ?>"></textarea>
+              <label for="alamat_vendor" class="">Alamat Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <input id="tanggal_berakhir" class="datepicker" name="tanggal_berakhir" type="text" value="<?php echo set_value('tanggal_berakhir'); ?>">
-              <label for="tanggal_berakhir" class="">Tanggal Berakhir</label>
+              <input id="telepon_vendor" name="telepon_vendor" type="number" value="<?php echo set_value('telepon_vendor'); ?>">
+              <label for="telepon_vendor" class="">Telepon Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <input id="posisi" name="posisi" type="text" value="<?php echo set_value('posisi'); ?>">
-              <label for="posisi" class="">Posisi</label>
+              <input id="email_vendor" name="email_vendor" type="email" class="validate" value="<?php echo set_value('email_vendor'); ?>">
+              <label for="email_vendor" class="">Alamat Email Vendor</label>
           </div>
-          <div class="col s12 m12">
-              <label for="deskripsi">Deskripsi</label>
-              <textarea id="deskripsi" name="deskripsi" type="text" value="<?php echo set_value('deskripsi'); ?>"></textarea>
+          <div class="input-field col s12 m6">
+              <input id="nama_pic" name="nama_pic" style="text-transform:uppercase" type="text" value="<?php echo set_value('nama_pic'); ?>">
+              <label for="nama_pic" class="">Nama PIC</label>
           </div>
-          <div class="input-field col s12 right-align">
-              <button type="submit" name="submit" value="add_event" class="btn amber waves-effect waves-green">Simpan</button>
+          <div class="input-field col s12 m6 right-align">
+              <input type="button" class="btn red waves-effect waves-green" value="Kembali" onclick="history.back(-1)" />
+              <button type="submit" name="submit" value="add_event" class="btn green waves-effect waves-green">Simpan</button>
           </div>
         </form>
       </div>

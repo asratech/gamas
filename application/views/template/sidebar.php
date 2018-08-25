@@ -26,6 +26,18 @@
       <li>
     </ul>
     <!-- End Dropdown Menu Transaksi -->
+    <!-- Drop Down Menu Laporan Active -->
+    <ul class="collapsible collapsible-accordion">
+      <li>
+      <div class="collapsible-header"><i class="material-icons">assessment</i>Laporan<i class="material-icons right black-text" style="margin-right:0;">arrow_drop_down</i></div>
+        <div class="collapsible-body">
+          <ul>
+            <li><a class="waves-effect" href="<?php echo base_url('events'); ?>"><i class="material-icons">event</i>Laporan Data Perizinan</a></li>
+          </ul>
+        </div>
+      <li>
+    </ul>
+    <!-- End Dropdown Menu Transaksi -->
     <li>
       <div class="divider"></div>
     </li>
@@ -38,8 +50,10 @@
         <div class="collapsible-header"><i class="material-icons">build</i>Master<i class="material-icons right black-text" style="margin-right:0;">arrow_drop_down</i></div>
           <div class="collapsible-body">
             <ul>
-              <li><a class="waves-effect" href="<?php echo base_url('users'); ?>"><i class="material-icons">people</i>Master Users</a></li>
-              <li><a class="waves-effect" href="<?php echo base_url('cabang'); ?>"><i class="material-icons">account_balance</i>Master Cabang</a></li>
+              <li><a class="waves-effect" href="<?php echo base_url('users'); ?>"><i class="material-icons">people</i>Users Managemen</a></li>
+              <li><a class="waves-effect" href="<?php echo base_url('cabang'); ?>"><i class="material-icons">where_to_vote</i>Managemen Cabang</a></li>
+              <li><a class="waves-effect" href="<?php echo base_url('vendor'); ?>"><i class="material-icons">how_to_reg</i>Managemen Vendor</a></li>
+              <li><a class="waves-effect" href="<?php echo base_url('perizinan'); ?>"><i class="material-icons">assistant</i>Managemen Perizinan</a></li>
             </ul>
         </div>
       </li>

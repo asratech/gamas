@@ -21,27 +21,28 @@
             </div>
           <?php endif; ?>
           <div class="input-field col s12 m6">
-              <input id="nama_perusahaan" name="nama_perusahaan" type="text" value="<?php echo $loker->nama_perusahaan; ?>">
-              <label for="nama_perusahaan" class="">Nama Perusahaan</label>
+              <input id="nama_vendor" name="nama_vendor" type="text" value="<?php echo $vendor->nama_vendor; ?>">
+              <label for="nama_vendor" class="">Nama Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <input id="contact" name="contact" type="text" value="<?php echo $loker->contact; ?>">
-              <label for="contact" class="">Contact Person</label>
+              <textarea id="alamat_vendor" name="alamat_vendor" class="materialize-textarea" value="<?php echo $vendor->alamat_vendor; ?>"></textarea>
+              <label for="alamat_vendor" class="">Alamat vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <input id="tanggal_berakhir" class="datepicker" name="tanggal_berakhir" type="text" value="<?php echo $loker->tanggal_berakhir; ?>">
-              <label for="tanggal_berakhir" class="">Tanggal Berakhir</label>
+              <input id="telepon_vendor" name="telepon_vendor" type="number" value="<?php echo $vendor->telepon_vendor; ?>">
+              <label for="telepon_vendor" class="">Telepon Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <input id="posisi" name="posisi" type="text" value="<?php echo $loker->posisi; ?>">
-              <label for="posisi" class="">Posisi</label>
+              <input id="email_vendor" name="email_vendor" type="email" class="validare" value="<?php echo $vendor->email_vendor; ?>">
+              <label for="email_vendor" class="">Email Vendor</label>
           </div>
-          <div class="input-field col s12 m12">
-              <textarea id="deskripsi" name="deskripsi" type="text"><?php echo $loker->deskripsi; ?></textarea>
-              <label for="deskripsi" class="">Deskripsi</label>
+          <div class="input-field col s12 m6">
+              <input id="nama_pic" name="nama_pic" type="text" value="<?php echo $vendor->nama_pic; ?>">
+              <label for="nama_pic" class="">Nama PIC</label>
           </div>
           <div class="input-field col s12 right-align">
-              <button type="submit" name="submit" value="<?php echo $loker->id; ?>" class="btn amber waves-effect waves-green">Simpan</button>
+              <input type="button" class="btn red waves-effect waves-green" value="Batal" onclick="history.back(-1)" />
+              <button type="submit" name="submit" value="<?php echo $vendor->id_vendor; ?>" class="btn green waves-effect waves-green">Simpan</button>
           </div>
         </form>
       </div>

@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Loker extends MY_Controller {
+class Vendor extends MY_Controller {
 
   public function __construct()
   {
@@ -9,8 +9,8 @@ class Loker extends MY_Controller {
     // Cek apakah user sudah login
     $this->cekLogin();
 
-    // Load model loker
-    $this->load->model('model_loker');
+    // Load model vendor
+    $this->load->model('model_vendor');
   }
 
   public function index()
@@ -19,8 +19,8 @@ class Loker extends MY_Controller {
     $this->load->library('pagination');
 
     // Pengaturan pagination
-    $config['base_url'] = base_url('loker/index/');
-    $config['total_rows'] = $this->model_loker->get()->num_rows();
+    $config['base_url'] = base_url('vendor/index/');
+    $config['total_rows'] = $this->model_vendor->get()->num_rows();
     $config['per_page'] = 5;
     $config['offset'] = $this->uri->segment(3);
 
@@ -44,11 +44,12 @@ class Loker extends MY_Controller {
     $config['cur_tag_close'] = '</a></li>';
 
     $this->pagination->initialize($config);
+    $this->form_validation->set_rules('email_vendor', 'Emaid ID', 'trim|required|valid_email');
 
     // Data untuk page index
-    $data['pageTitle'] = 'Lowongan Kerja';
-    $data['loker'] = $this->model_loker->get_offset($config['per_page'], $config['offset'])->result();
-    $data['pageContent'] = $this->load->view('loker/lokerList', $data, TRUE);
+    $data['pageTitle'] = 'Management Vendor Perizinan';
+    $data['vendor'] = $this->model_vendor->get_offset($config['per_page'], $config['offset'])->result();
+    $data['pageContent'] = $this->load->view('vendor/vendorList', $data, TRUE);
 
     // Jalankan view template/layout
     $this->load->view('template/layout', $data);
@@ -59,105 +60,93 @@ class Loker extends MY_Controller {
     // Jika form di submit jalankan blok kode ini
     if ($this->input->post('submit')) {
       
-      // Mengatur validasi data nama perusahaan,
+      // Mengatur validasi data nama vendor,
       // # required = tidak boleh kosong
-      $this->form_validation->set_rules('nama_perusahaan', 'Nama Perusahaan', 'required');
+      $this->form_validation->set_rules('nama_vendor', 'Nama Vendor', 'required');
 
       // Mengatur validasi data contact,
       // # required = tidak boleh kosong
-      $this->form_validation->set_rules('contact', 'Contact Person', 'required');
+      $this->form_validation->set_rules('alamat_vendor', 'Alamat Vendor', 'required');
 
       // Mengatur validasi data tanggal berakhir,
       // # required = tidak boleh kosong
-      $this->form_validation->set_rules('tanggal_berakhir', 'Tanggal Berakhir', 'required');
+      $this->form_validation->set_rules('telepon_vendor', 'Telepon Vendor', 'required');
 
       // Mengatur validasi data posisi,
       // # required = tidak boleh kosong
-      $this->form_validation->set_rules('posisi', 'Posisi', 'required');
-
-      // Mengatur validasi data deskripsi,
-      // # required = tidak boleh kosong
-      $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
-
-      // Mengatur pesan error validasi data
-      $this->form_validation->set_message('required', '%s tidak boleh kosong!');
+      $this->form_validation->set_rules('nama_pic', 'Nama PIC', 'required');
 
       // Jalankan validasi jika semuanya benar maka lanjutkan
 			if ($this->form_validation->run() === TRUE) {
-
         $data = array(
-          'nama_perusahaan' => $this->input->post('nama_perusahaan'),
-          'contact' => $this->input->post('contact'),
-          'tanggal_berakhir' => date_format(date_create($this->input->post('tanggal_berakhir')), 'Y-m-d'),
-          'posisi' => $this->input->post('posisi'),
-          'deskripsi' => $this->input->post('deskripsi'),
-          'username' => $this->session->userdata('username')
+          'nama_vendor' => $this->input->post('nama_vendor'),
+          'alamat_vendor' => $this->input->post('alamat_vendor'),
+          'telepon_vendor' => $this->input->post('telepon_vendor'),
+          'email_vendor' => $this->input->post('email_vendor'),
+          'nama_pic' => $this->input->post('nama_pic'),
+          'createby' => $this->session->userdata('nama'),
         );
 
-        // Jalankan function insert pada model_loker
-        $query = $this->model_loker->insert($data);
+        // Jalankan function insert pada model_vendor
+        $query = $this->model_vendor->insert($data);
 
         // cek jika query berhasil
-        if ($query) $message = array('status' => true, 'message' => 'Berhasil menambahkan lowongan kerja');
-        else $message = array('status' => false, 'message' => 'Gagal menambahkan lowongan kerja');
+        if ($query) $message = array('status' => true, 'message' => 'Berhasil menambahkan master Vendor');
+        else $message = array('status' => false, 'message' => 'Gagal menambahkan master Vendor');
 
         // simpan message sebagai session
         $this->session->set_flashdata('message', $message);
 
         // refresh page
-        redirect('loker/add', 'refresh');
+        redirect('vendor/add', 'refresh');
 			} 
     }
     
-    // Data untuk page loker/add
-    $data['pageTitle'] = 'Tambah Data Lowongan Kerja';
-    $data['pageContent'] = $this->load->view('loker/lokerAdd', $data, TRUE);
+    // Data untuk page vendor/add
+    $data['pageTitle'] = 'Tambah Data Master Vendor';
+    $data['pageContent'] = $this->load->view('vendor/vendorAdd', $data, TRUE);
 
     // Jalankan view template/layout
     $this->load->view('template/layout', $data);
   }
 
-  public function detail($id = null)
+  public function detail($id_vendor = null)
   {
-    // Ambil data loker dari database
-    $loker = $this->model_loker->get_where(array('id' => $id))->row();
+    // Ambil data vendor dari database
+    $vendor = $this->model_vendor->get_where(array('id_vendor' => $id_vendor))->row();
     
-    // Jika data loker tidak ada maka show 404
-    if (!$loker) show_404();
+    // Jika data vendor tidak ada maka show 404
+    if (!$vendor) show_404();
 
-    // Data untuk page loker/detail
-    $data['pageTitle'] = 'Detail Lowongan Kerja';
-    $data['loker'] = $loker;
-    $data['pageContent'] = $this->load->view('loker/lokerDetail', $data, TRUE);
+    // Data untuk page vendor/detail
+    $data['pageTitle'] = 'Detail Master Vendor';
+    $data['vendor'] = $vendor;
+    $data['pageContent'] = $this->load->view('vendor/vendorDetail', $data, TRUE);
 
     // Jalankan view template/layout
     $this->load->view('template/layout', $data);
   }
 
-  public function edit($id = null)
+  public function edit($id_vendor = null)
   {
     // Jika form di submit jalankan blok kode ini
     if ($this->input->post('submit')) {
       
       // Mengatur validasi data nama perusahaan,
       // # required = tidak boleh kosong
-      $this->form_validation->set_rules('nama_perusahaan', 'Nama Perusahaan', 'required');
+      $this->form_validation->set_rules('nama_vendor', 'Nama Vendor', 'required');
 
       // Mengatur validasi data contact,
       // # required = tidak boleh kosong
-      $this->form_validation->set_rules('contact', 'Contact Person', 'required');
+      $this->form_validation->set_rules('alamat_vendor', 'Alamat Vendor', 'required');
 
       // Mengatur validasi data tanggal berakhir,
       // # required = tidak boleh kosong
-      $this->form_validation->set_rules('tanggal_berakhir', 'Tanggal Berakhir', 'required');
+      $this->form_validation->set_rules('telepon_vendor', 'Telepon Vendor', 'required');
 
       // Mengatur validasi data posisi,
       // # required = tidak boleh kosong
-      $this->form_validation->set_rules('posisi', 'Posisi', 'required');
-
-      // Mengatur validasi data deskripsi,
-      // # required = tidak boleh kosong
-      $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
+      $this->form_validation->set_rules('nama_pic', 'Nama PIC', 'required');
 
       // Mengatur pesan error validasi data
       $this->form_validation->set_message('required', '%s tidak boleh kosong!');
@@ -166,71 +155,68 @@ class Loker extends MY_Controller {
 			if ($this->form_validation->run() === TRUE) {
 
         $data = array(
-          'nama_perusahaan' => $this->input->post('nama_perusahaan'),
-          'contact' => $this->input->post('contact'),
-          'tanggal_berakhir' => date_format(date_create($this->input->post('tanggal_berakhir')), 'Y-m-d'),
-          'posisi' => $this->input->post('posisi'),
-          'deskripsi' => $this->input->post('deskripsi')
+          'nama_vendor' => $this->input->post('nama_vendor'),
+          'alamat_vendor' => $this->input->post('alamat_vendor'),
+          'telepon_vendor' => $this->input->post('telepon_vendor'),
+          'email_vendor' => $this->input->post('email_vendor'),
+          'nama_pic' => $this->input->post('nama_pic')
         );
 
-        // Jalankan function update pada model_loker
-        $query = $this->model_loker->update($id, $data);
+        // Jalankan function update pada model_vendor
+        $query = $this->model_vendor->update($id_vendor, $data);
 
         // cek jika query berhasil
-        if ($query) $message = array('status' => true, 'message' => 'Berhasil memperbarui lowongan kerja');
-        else $message = array('status' => true, 'message' => 'Gagal memperbarui lowongan kerja');
+        if ($query) $message = array('status' => true, 'message' => 'Berhasil memperbarui data vendor');
+        else $message = array('status' => true, 'message' => 'Gagal memperbarui data vendor');
 
         // simpan message sebagai session
         $this->session->set_flashdata('message', $message);
 
         // refresh page
-        redirect('loker/edit/'.$id, 'refresh');
+        redirect('vendor'.$id, 'refresh');
 			} 
     }
     
-    // Ambil data loker dari database
-    $loker = $this->model_loker->get_where(array('id' => $id))->row();
-    
-    // Mengubah format tanggal dari database
-    $loker->tanggal_berakhir = date_format(date_create($loker->tanggal_berakhir), 'd-m-Y');
+    // Ambil data vendor dari database
+    $vendor = $this->model_vendor->get_where(array('id_vendor' => $id_vendor))->row();
 
-    // Jika data loker tidak ada maka show 404
-    if (!$loker) show_404();
+    // Jika data vendor tidak ada maka show 404
+    if (!$vendor) show_404();
 
-    // Jika data loker diedit oleh user lain maka show 404
-    if ($loker->username !== $this->session->userdata('username')) show_404();
+    // Jika data vendor diedit oleh user lain maka show 404
+    //if ($vendor->username !== $this->session->userdata('username')) show_404();
 
-    // Data untuk page loker/add
-    $data['pageTitle'] = 'Edit Data Lowongan Kerja';
-    $data['loker'] = $loker;
-    $data['pageContent'] = $this->load->view('loker/lokerEdit', $data, TRUE);
+    // Data untuk page vendor/add
+    $data['pageTitle'] = 'Edit Data Master Vendor';
+    $data['vendor'] = $vendor;
+    $data['pageContent'] = $this->load->view('vendor/vendorEdit', $data, TRUE);
 
     // Jalankan view template/layout
     $this->load->view('template/layout', $data);
   }
 
-  public function delete($id)
+  public function delete($id_vendor)
   {
-    // Ambil data loker dari database
-    $loker = $this->model_loker->get_where(array('id' => $id))->row();
+    // Ambil data vendor dari database
+    $vendor = $this->model_vendor->get_where(array('id_vendor' => $id_vendor))->row();
 
-    // Jika data loker tidak ada maka show 404
-    if (!$loker) show_404();
+    // Jika data vendor tidak ada maka show 404
+    if (!$vendor) show_404();
 
-    // Jika data loker didelete oleh user lain maka show 404
-    if ($loker->username !== $this->session->userdata('username')) show_404();
+    // Jika data vendor didelete oleh user lain maka show 404
+    if ($vendor->username !== $this->session->userdata('username')) show_404();
 
-    // Jalankan function delete pada model_loker
-    $query = $this->model_loker->delete($id);
+    // Jalankan function delete pada model_vendor
+    $query = $this->model_vendor->delete($id_vendor);
 
     // cek jika query berhasil
-    if ($query) $message = array('status' => true, 'message' => 'Berhasil menghapus lowongan kerja');
-    else $message = array('status' => true, 'message' => 'Gagal menghapus lowongan kerja');
+    if ($query) $message = array('status' => true, 'message' => 'Berhasil menghapus Data Master Vendor');
+    else $message = array('status' => true, 'message' => 'Gagal menghapus data master vendor');
 
     // simpan message sebagai session
     $this->session->set_flashdata('message', $message);
 
     // refresh page
-    redirect('loker', 'refresh');
+    redirect('vendor', 'refresh');
   }
 }

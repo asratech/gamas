@@ -2,8 +2,8 @@
     <div class="col s12">
       <div class="card">
         <div class="card-content light-blue lighten-1 white-text">
-          <span class="card-title">Data Lowongan Kerja</span>
-          <a href="<?php echo base_url('loker/add'); ?>" class="btn-floating right halfway-fab waves-effect waves-light amber tooltipped" data-position="top" data-tooltip="Tambah Data"><i class="material-icons">add</i></a>
+          <span class="card-title">Data Master Vendor</span>
+          <a href="<?php echo base_url('vendor/add'); ?>" class="btn-floating right halfway-fab waves-effect waves-light amber tooltipped" data-position="top" data-tooltip="Tambah Data"><i class="material-icons">add</i></a>
         </div>
         <div class="card-content">
           <?php if($message = $this->session->flashdata('message')): ?>
@@ -17,26 +17,26 @@
               <thead>
                   <tr>
                       <th>No</th>
-                      <th>Nama Perusahaan</th>
-                      <th>Contact</th>
-                      <th class="center-align">Tgl. Berakhir</th>
-                      <th>Posisi</th>
+                      <th>Nama Vendor</th>
+                      <th>Telepon</th>
+                      <th class="center-align">Email</th>
+                      <th>Nama PIC</th>
                       <th class="center-align">Action</th>
                   </tr>
               </thead>
               <tbody>
-                <?php if($loker): ?>
-                  <?php $no = $this->uri->segment(3); foreach($loker as $row): ?>
+                <?php if($vendor): ?>
+                  <?php $no = $this->uri->segment(3); foreach($vendor as $row): ?>
                     <tr>
                       <td><?php echo ++$no; ?></td>
-                      <td><?php echo $row->nama_perusahaan; ?></td>
-                      <td><?php echo $row->contact; ?></td>
-                      <td class="center-align"><?php echo $row->tanggal_berakhir; ?></td>
-                      <td><?php echo $row->posisi; ?></td>
+                      <td><?php echo $row->nama_vendor; ?></td>
+                      <td><?php echo $row->telepon_vendor; ?></td>
+                      <td class="center-align"><?php echo $row->email_vendor; ?></td>
+                      <td><?php echo $row->nama_pic; ?></td>
                       <td class="center-align">
-                        <a href="<?php echo base_url('loker/detail/' . $row->id); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Detail"><i class="material-icons">list</i></a>
-                        <a <?php echo ($this->session->userdata('username') !== $row->username) ? 'disabled' : ''; ?> href="<?php echo base_url('loker/edit/' . $row->id); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Edit Data"><i class="material-icons">edit</i></a>
-                        <a <?php echo ($this->session->userdata('username') !== $row->username) ? 'disabled' : ''; ?> href="<?php echo base_url('loker/delete/' . $row->id); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Delete Data"><i class="material-icons">delete</i></a>
+                        <a href="<?php echo base_url('vendor/detail/' . $row->id_vendor); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Detail"><i class="material-icons">list</i></a>
+                        <a href="<?php echo base_url('vendor/edit/' . $row->id_vendor); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Edit Data"><i class="material-icons">edit</i></a>
+                        <a href="<?php echo base_url('vendor/delete/' . $row->id_vendor); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Delete Data"><i class="material-icons">delete</i></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>

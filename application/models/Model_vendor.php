@@ -1,7 +1,7 @@
 <?php
-  class Model_loker extends CI_Model {
+  class Model_vendor extends CI_Model {
 
-      public $table = 'loker';
+      public $table = 'mst_vendor';
 
     public function get()
     {
@@ -43,25 +43,26 @@
       return $query;
     }
 
-    public function update($id, $data)
+    public function update($id_vendor, $data)
     {
       // Jalankan query
       $query = $this->db
-        ->where('id', $id)
+        ->where('id_vendor', $id_vendor)
         ->update($this->table, $data);
       
       // Return hasil query
       return $query;
     }
 
-    public function delete($id)
+    public function delete($id_vendor)
     {
       // Jalankan query
       $query = $this->db
-        ->where('id', $id)
+        ->where('id_vendor', $id_vendor)
         ->delete($this->table);
       
       // Return hasil query
       return $query;
     }
+    
   }

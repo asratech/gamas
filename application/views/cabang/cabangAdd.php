@@ -21,7 +21,7 @@
             </div>
           <?php endif; ?>
           <div class="input-field col s12 m6">
-              <input id="namacabang" name="namacabang" type="text" value="<?php echo set_value('namacabang'); ?>">
+              <input id="namacabang" name="namacabang" style="text-transform:uppercase" type="text" value="<?php echo set_value('namacabang'); ?>">
               <label for="namacabang" class="">Nama Cabang</label>
           </div>
           <div class="input-field col s12 m6">
@@ -34,6 +34,7 @@
           </div>
           </div>
           <div class="input-field col s12 right-align">
+              <input type="button" class="btn red waves-effect waves-red" value="Batal" onclick="history.back(-1)" />
               <button type="submit" name="submit" value="add_cabang" class="btn green waves-effect waves-green">Simpan</button>
           </div>
         </form>
