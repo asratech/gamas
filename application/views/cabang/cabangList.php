@@ -1,3 +1,24 @@
+<script>
+$(function(){ TablesDatatables.init(); });
+function validate(a)
+{
+    var id= a.value;
+
+    swal({
+            title: "Are you sure?",
+            text: "You want to delete this Menu Item!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, Delete it!",
+            closeOnConfirm: false }, function()
+        {
+            swal("Deleted!", "Menu Item has been Deleted.", "success");
+            $(location).attr('href','<?php echo base_url('cabang/delete/' . $row->id_cabang); ?>');
+        }
+    );
+}
+ </script>
 <div class="row">
     <div class="col s12">
       <div class="card">
@@ -31,7 +52,7 @@
                       <td><?php echo $row->wilayah; ?></td>
                       <td class="center-align">
                         <a href="<?php echo base_url('cabang/edit/' . $row->id_cabang); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Edit Data Cabang"><i class="material-icons">edit</i></a>
-                        <a href="<?php echo base_url('cabang/delete/' . $row->id_cabang); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Delete Data Cabang"><i class="material-icons">delete</i></a>
+                        <a href="<?php echo base_url('cabang/delete/' . $row->id_cabang); ?>" onclick="return konfirmasiHapus()" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Delete Data Cabang"><i class="material-icons">delete</i></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>

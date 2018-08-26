@@ -36,7 +36,7 @@
                       <td class="center-align">
                         <a href="<?php echo base_url('vendor/detail/' . $row->id_vendor); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Detail"><i class="material-icons">list</i></a>
                         <a href="<?php echo base_url('vendor/edit/' . $row->id_vendor); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Edit Data"><i class="material-icons">edit</i></a>
-                        <a href="<?php echo base_url('vendor/delete/' . $row->id_vendor); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Delete Data"><i class="material-icons">delete</i></a>
+                        <a href="<?php echo base_url('vendor/delete/' . $row->id_vendor); ?>" onclick="return konfirmasiHapus()" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Delete Data"><i class="material-icons">delete</i></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>
