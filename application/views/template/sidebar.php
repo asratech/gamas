@@ -58,22 +58,10 @@
         </div>
       </li>
     </ul>
-  <!-- Pindah ke menu floating
-      <li>
-        <div class="divider"></div>
-      </li>
+ 
     <?php endif; ?>
-    <li>
-        <a class="subheader">User Profile</a>
-      </li>
-    <li>
-      <a class="waves-effect" href="<?php echo base_url('profile#password-tab'); ?>"><i class="material-icons">verified_user</i>Ganti Password</a>
-    </li>
-
-    <li>
-      <a class="waves-effect"  href="<?php echo base_url('auth/logout'); ?>"><i class="material-icons">exit_to_app</i>Keluar</a>
-    </li>
-      -->
+   
+      
   </ul>
 
 </aside>

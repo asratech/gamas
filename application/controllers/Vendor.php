@@ -12,6 +12,9 @@ class Vendor extends MY_Controller {
     // Load model vendor
     $this->load->model('model_vendor');
 
+    // load helper Date
+    $this->load->helper('date');
+
     // Load Library pdf
     $this->load->library('pdf');
   }
@@ -90,6 +93,7 @@ class Vendor extends MY_Controller {
           'email_vendor' => $this->input->post('email_vendor'),
           'nama_pic' => $this->input->post('nama_pic'),
           'createby' => $this->session->userdata('nama'),
+          'createdate' =>mdate('%Y-%m-%d %H:%i:%s', now())
         );
 
         // Jalankan function insert pada model_vendor

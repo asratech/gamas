@@ -11,8 +11,8 @@
     		</a>
 				<ul>
 					<li><a class="btn-floating red tooltipped" data-position="top" data-tooltip="Logout" href="<?php echo base_url('auth/logout'); ?>"><i class="material-icons">exit_to_app</i></a></li>
-					<li><a class="btn-floating green tooltipped" data-position="top" data-tooltip="Ganti Password" href="<?php echo base_url('profile#password-tab'); ?>"><i class="material-icons">verified_user</i></a></li>
-					<li><a class="btn-floating blue tooltipped" data-position="top" data-tooltip="User Profile" href="<?php echo base_url('profile'); ?>"><i class="material-icons">face</i></a></li>
+					<li><a class="btn-floating green tooltipped" data-position="top" data-tooltip="Ganti Password" href="<?php echo base_url('profile#password-tab'); ?>"><i class="material-icons">vpn_key</i></a></li>
+					<li><a class="btn-floating blue tooltipped" data-position="top" data-tooltip="User Profile" href="<?php echo base_url('profile'); ?>"><i class="material-icons">account_box</i></a></li>
 				<ul>
 		</div>
 		<!--  Scripts-->
