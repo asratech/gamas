@@ -2,7 +2,7 @@
     <div class="col s12">
       <div class="card">
         <div class="card-content light-blue lighten-1 white-text">
-          <span class="card-title">Data Users</span>
+          <span class="card-title">Managemen User GA-MAS</span>
           <a href="<?php echo base_url('users/add'); ?>" class="btn-floating right halfway-fab waves-effect waves-light amber tooltipped" data-position="top" data-tooltip="Tambah Data"><i class="material-icons">add</i></a>
         </div>
         <div class="card-content">
@@ -13,11 +13,12 @@
               </div>
             </div>
           <?php endif; ?>
-          <table class="bordered highlight">
+          <table id="data-table" class="mdl-data-table" style="width:100%">
               <thead>
                   <tr>
                       <th>No</th>
                       <th>Username</th>
+                      <th>Wilayah</th>
                       <th>Level</th>
                       <th class="center-align">Active</th>
                       <th class="center-align">Last Login</th>
@@ -30,6 +31,7 @@
                     <tr>
                       <td><?php echo ++$no; ?></td>
                       <td><?php echo $row->username; ?></td>
+                      <td><?php echo $row->wilayah; ?></td>
                       <td><?php echo $row->level; ?></td>
                       <td class="center-align"><?php echo $row->active; ?></td>
                       <td class="center-align"><?php echo $row->last_login; ?></td>

@@ -21,8 +21,19 @@
             </div>
           <?php endif; ?>
           <div class="input-field col s12 m6">
+              <select id="wilayah" name="wilayah">
+                  <option <?php echo ($user->wilayah === 'Jabodetabek') ? 'selected' : ''; ?> value="Jabodetabek">Jabodetabek</option>
+                  <option <?php echo ($user->wilayah === 'Jawa Timur') ? 'selected' : ''; ?> value="Jawa Timur">Jawa Timur</option>
+              </select>
+              <label>Wilayah</label>
+          </div>
+          <div class="input-field col s12 m6">
               <input id="username" disabled name="username" type="text" value="<?php echo $user->username; ?>">
               <label for="username" class="">Username</label>
+          </div>
+          <div class="input-field col s12 m6">
+              <input id="email" name="email" type="email" class="validate" value="<?php echo $user->email; ?>">
+              <label for="email" class="">Email</label>
           </div>
           <div class="input-field col s12 m6">
               <input id="password" name="password" type="password" value="">
@@ -31,7 +42,7 @@
           <div class="input-field col s12 m6">
               <select id="level" name="level">
                   <option <?php echo ($user->level === 'administrator') ? 'selected' : ''; ?> value="administrator">Administrator</option>
-                  <option <?php echo ($user->level === 'alumni') ? 'selected' : ''; ?> value="alumni">Alumni</option>
+                  <option <?php echo ($user->level === 'user') ? 'selected' : ''; ?> value="user">User</option>
               </select>
               <label>Pilih Level</label>
           </div>
@@ -43,7 +54,8 @@
               <label>Active</label>
           </div>
           <div class="input-field col s12 right-align">
-              <button type="submit" name="submit" value="<?php echo $user->id; ?>" class="btn amber waves-effect waves-green">Simpan</button>
+              <input type="button" class="btn red waves-effect waves-red" value="Batal" onclick="history.back(-1)" />
+              <button type="submit" name="submit" value="<?php echo $user->id; ?>" class="btn green waves-effect waves-green">Simpan</button>
           </div>
         </form>
       </div>

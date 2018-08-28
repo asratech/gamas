@@ -30,7 +30,7 @@
               <?php endif; ?>
               <div class="input-field col s12 m6">
                   <input id="nama" name="nama" type="text" value="<?php echo $this->session->userdata('nama'); ?>">
-                  <label for="nama" class="">Nama</label>
+                  <label for="nama" class="">Nama Lengkap</label>
               </div>
               <div class="input-field col s12 m6">
                   <input id="alamat" name="alamat" type="text" value="<?php echo $this->session->userdata('alamat'); ?>">

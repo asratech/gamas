@@ -2,8 +2,9 @@
     <div class="col s12">
       <div class="card">
         <div class="card-content light-blue lighten-1 white-text">
-          <span class="card-title">Data Master Vendor</span>
+          <span class="card-title">  Data Master Vendor</span>
           <a href="<?php echo base_url('vendor/add'); ?>" class="btn-floating right halfway-fab waves-effect waves-light amber tooltipped" data-position="top" data-tooltip="Tambah Data"><i class="material-icons">add</i></a>
+          <a href="<?php echo base_url('vendor/laporanvendor'); ?>" class="btn-floating right halfway-fab waves-effect waves-light green tooltipped" data-position="top" data-tooltip="Print Data Master"> <i class="material-icons">print</i></a>
         </div>
         <div class="card-content">
           <?php if($message = $this->session->flashdata('message')): ?>
@@ -17,9 +18,10 @@
               <thead>
                   <tr>
                       <th>No</th>
+                      <th>Kode Vendor</th>
                       <th>Nama Vendor</th>
                       <th>Telepon</th>
-                      <th class="center-align">Email</th>
+                      <th>Email</th>
                       <th>Nama PIC</th>
                       <th class="center-align">Action</th>
                   </tr>
@@ -29,9 +31,10 @@
                   <?php $no = $this->uri->segment(3); foreach($vendor as $row): ?>
                     <tr>
                       <td><?php echo ++$no; ?></td>
+                      <td><?php echo $row->kode_vendor; ?></td>
                       <td><?php echo $row->nama_vendor; ?></td>
                       <td><?php echo $row->telepon_vendor; ?></td>
-                      <td class="center-align"><?php echo $row->email_vendor; ?></td>
+                      <td><?php echo $row->email_vendor; ?></td>
                       <td><?php echo $row->nama_pic; ?></td>
                       <td class="center-align">
                         <a href="<?php echo base_url('vendor/detail/' . $row->id_vendor); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped" data-position="top" data-tooltip="Detail"><i class="material-icons">list</i></a>

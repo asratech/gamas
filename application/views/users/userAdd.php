@@ -21,8 +21,20 @@
             </div>
           <?php endif; ?>
           <div class="input-field col s12 m6">
+              <select id="wilayah" name="wilayah">
+                  <option value="" disabled selected>Pilih Wilayah</option>
+                  <option value="Jabodetabek">Jabodetabek</option>
+                  <option value="Jawa Timur">Jawa Timur</option>
+              </select>
+              <label>Wilayah</label>
+          </div>
+          <div class="input-field col s12 m6">
               <input id="username" name="username" type="text" value="<?php echo set_value('username'); ?>">
               <label for="username" class="">Username</label>
+          </div>
+          <div class="input-field col s12 m6">
+              <input id="email" name="email" type="email" class="validate" value="<?php echo set_value('email'); ?>">
+              <label for="email" class="">Alamat Email</label>
           </div>
           <div class="input-field col s12 m6">
               <input id="password" name="password" type="password" value="<?php echo set_value('password'); ?>">
@@ -31,7 +43,7 @@
           <div class="input-field col s12 m6">
               <select id="level" name="level">
                   <option value="administrator">Administrator</option>
-                  <option value="alumni">User</option>
+                  <option value="user">User</option>
               </select>
               <label>Pilih Level</label>
           </div>
@@ -43,7 +55,8 @@
               <label>Active</label>
           </div>
           <div class="input-field col s12 right-align">
-              <button type="submit" name="submit" value="add_user" class="btn amber waves-effect waves-green">Simpan</button>
+              <input type="button" class="btn red waves-effect waves-red" value="Batal" onclick="history.back(-1)" />
+              <button type="submit" name="submit" value="add_user" class="btn green waves-effect waves-green">Simpan</button>
           </div>
         </form>
       </div>

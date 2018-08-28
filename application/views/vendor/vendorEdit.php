@@ -21,11 +21,11 @@
             </div>
           <?php endif; ?>
           <div class="input-field col s12 m6">
-              <input id="nama_vendor" name="nama_vendor" type="text" value="<?php echo $vendor->nama_vendor; ?>">
+              <input id="nama_vendor" name="nama_vendor" onkeyup="this.value = this.value.toUpperCase()" type="text" value="<?php echo $vendor->nama_vendor; ?>">
               <label for="nama_vendor" class="">Nama Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <textarea id="alamat_vendor" name="alamat_vendor" class="materialize-textarea" value="<?php echo $vendor->alamat_vendor; ?>"></textarea>
+              <textarea id="alamat_vendor" name="alamat_vendor" onkeyup="this.value = this.value.toUpperCase()" class="materialize-textarea" value="<?php echo $vendor->alamat_vendor; ?>"></textarea>
               <label for="alamat_vendor" class="">Alamat vendor</label>
           </div>
           <div class="input-field col s12 m6">
@@ -33,11 +33,11 @@
               <label for="telepon_vendor" class="">Telepon Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <input id="email_vendor" name="email_vendor" type="email" class="validare" value="<?php echo $vendor->email_vendor; ?>">
+              <input id="email_vendor" name="email_vendor" type="email" class="validate" value="<?php echo $vendor->email_vendor; ?>">
               <label for="email_vendor" class="">Email Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <input id="nama_pic" name="nama_pic" type="text" value="<?php echo $vendor->nama_pic; ?>">
+              <input id="nama_pic" name="nama_pic" onkeyup="this.value = this.value.toUpperCase()" type="text" value="<?php echo $vendor->nama_pic; ?>">
               <label for="nama_pic" class="">Nama PIC</label>
           </div>
           <div class="input-field col s12 right-align">

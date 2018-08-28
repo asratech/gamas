@@ -11,6 +11,9 @@ class Vendor extends MY_Controller {
 
     // Load model vendor
     $this->load->model('model_vendor');
+
+    // Load Library pdf
+    $this->load->library('pdf');
   }
 
   public function index()
@@ -78,7 +81,9 @@ class Vendor extends MY_Controller {
 
       // Jalankan validasi jika semuanya benar maka lanjutkan
 			if ($this->form_validation->run() === TRUE) {
+        $kode_vendor = $this->model_vendor->buat_kode();
         $data = array(
+          'kode_vendor'=>$kode_vendor,
           'nama_vendor' => $this->input->post('nama_vendor'),
           'alamat_vendor' => $this->input->post('alamat_vendor'),
           'telepon_vendor' => $this->input->post('telepon_vendor'),
@@ -98,7 +103,7 @@ class Vendor extends MY_Controller {
         $this->session->set_flashdata('message', $message);
 
         // refresh page
-        redirect('vendor/add', 'refresh');
+        redirect('vendor', 'refresh');
 			} 
     }
     
@@ -114,6 +119,7 @@ class Vendor extends MY_Controller {
   {
     // Ambil data vendor dari database
     $vendor = $this->model_vendor->get_where(array('id_vendor' => $id_vendor))->row();
+    $kode_vendor = $this->model_vendor->buat_kode();
     
     // Jika data vendor tidak ada maka show 404
     if (!$vendor) show_404();
@@ -143,6 +149,7 @@ class Vendor extends MY_Controller {
       // Mengatur validasi data tanggal berakhir,
       // # required = tidak boleh kosong
       $this->form_validation->set_rules('telepon_vendor', 'Telepon Vendor', 'required');
+      
 
       // Mengatur validasi data posisi,
       // # required = tidak boleh kosong
@@ -204,7 +211,7 @@ class Vendor extends MY_Controller {
     if (!$vendor) show_404();
 
     // Jika data vendor didelete oleh user lain maka show 404
-    if ($vendor->username !== $this->session->userdata('username')) show_404();
+    //if ($vendor->username !== $this->session->userdata('username')) show_404();
 
     // Jalankan function delete pada model_vendor
     $query = $this->model_vendor->delete($id_vendor);
@@ -219,4 +226,36 @@ class Vendor extends MY_Controller {
     // refresh page
     redirect('vendor', 'refresh');
   }
+
+  // Laporan PDF
+  public function laporanvendor(){
+  $pdf = new FPDF('l','mm','A5');
+        // membuat halaman baru
+        $pdf->AddPage();
+        // setting jenis font yang akan digunakan
+        $pdf->SetFont('Arial','B',16);
+        // mencetak string 
+        $pdf->Cell(190,7,'Laporan Data Vendor',0,1,'C');
+        $pdf->SetFont('Arial','B',12);
+        $pdf->Cell(190,7,'Master Data Vendor PT. Sejahtera Buana Trada',0,1,'C');
+        // Memberikan space kebawah agar tidak terlalu rapat
+        $pdf->Cell(10,7,'',0,1);
+        $pdf->SetFont('Arial','B',10);
+        $pdf->Cell(20,6,'Kode Vendor',1,0);
+        $pdf->Cell(27,6,'NAMA Vendor',1,0);
+        $pdf->Cell(90,6,'Alamat',1,0);
+        $pdf->Cell(10,7,'',0,1);
+        $pdf->Cell(25,6,'Telpon',1,1);
+        $pdf->Cell(25,6, 'Email',1,1);
+        $pdf->SetFont('Arial','',10);
+        $vendor = $this->db->get('mst_vendor')->result();
+        foreach ($vendor as $row){
+            $pdf->Cell(20,6,$row->kode_vendor,1,0);
+            $pdf->Cell(27,6,$row->nama_vendor,1,0);
+            $pdf->Cell(90,6,$row->alamat_vendor,1,0);
+            $pdf->Cell(25,6,$row->telepon_vendor,1,1); 
+            $pdf->Cell(25,6,$row->email_vendor,1,1); 
+        }
+        $pdf->Output();
+    }
 }

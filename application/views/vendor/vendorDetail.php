@@ -2,7 +2,7 @@
   <div class="col s12">
     <div class="card">
       <div class="card-content light-blue lighten-1 white-text">
-        <span class="card-title"><?php echo $pageTitle; ?></span>
+        <span class="card-title"><?php echo $pageTitle; ?> - (<?php echo $vendor->kode_vendor ?>)</span>
       </div>
       <div class="card-content">
         <div class="row">

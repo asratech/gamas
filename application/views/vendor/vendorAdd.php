@@ -2,7 +2,7 @@
   <div class="col s12">
     <div class="card">
       <div class="card-content light-blue lighten-1 white-text">
-        <span class="card-title"><?php echo $pageTitle; ?></span>
+        <span class="card-title"><?php echo $pageTitle; ?> - (VDR-XXXX) </span>
       </div>
       <div class="card-content">
         <form class="row" id="add-user-form" method="post" action="">
@@ -21,11 +21,11 @@
             </div>
           <?php endif; ?>
           <div class="input-field col s12 m6">
-              <input id="nama_vendor" name="nama_vendor" style="text-transform:uppercase" type="text" value="<?php echo set_value('nama_vendor'); ?>">
+              <input id="nama_vendor" name="nama_vendor" onkeyup="this.value = this.value.toUpperCase()" type="text" value="<?php echo set_value('nama_vendor'); ?>">
               <label for="nama_vendor" class="">Nama Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <textarea id="alamat_vendor" name="alamat_vendor" class="materialize-textarea" style="text-transform:uppercase" value="<?php echo set_value('alamat_vendor'); ?>"></textarea>
+              <textarea id="alamat_vendor" name="alamat_vendor" onkeyup="this.value = this.value.toUpperCase()" class="materialize-textarea" style="text-transform:uppercase" value="<?php echo set_value('alamat_vendor'); ?>"></textarea>
               <label for="alamat_vendor" class="">Alamat Vendor</label>
           </div>
           <div class="input-field col s12 m6">
@@ -37,7 +37,7 @@
               <label for="email_vendor" class="">Alamat Email Vendor</label>
           </div>
           <div class="input-field col s12 m6">
-              <input id="nama_pic" name="nama_pic" style="text-transform:uppercase" type="text" value="<?php echo set_value('nama_pic'); ?>">
+              <input id="nama_pic" name="nama_pic" onkeyup="this.value = this.value.toUpperCase()" type="text" value="<?php echo set_value('nama_pic'); ?>">
               <label for="nama_pic" class="">Nama PIC</label>
           </div>
           <div class="input-field col s12 m6 right-align">
