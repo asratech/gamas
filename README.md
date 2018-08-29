@@ -15,6 +15,6 @@ Released under the terms of the MIT license.
 - Developer by Ahmad Sopian
 
 ## Donasi
-Rek.BCA   : 6630288884
-Atas Nama : Ahmad Sopian
-WhatsApp : 0812 1909 3977
+- Rek.BCA   : 6630288884
+- Atas Nama : Ahmad Sopian
+- WhatsApp : 0812 1909 3977
