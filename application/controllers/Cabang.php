@@ -92,6 +92,7 @@ class Cabang extends MY_Controller {
     }
     
     // Data untuk page events/add
+    $data['wilayah'] = $this->model_cabang->getwilayah()->result();
     $data['pageTitle'] = 'Tambah Data Cabang';
     $data['pageContent'] = $this->load->view('cabang/cabangAdd', $data, TRUE);
 

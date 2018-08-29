@@ -103,5 +103,11 @@
       // Return hasil query
       return $query;
     }
+
+    // Mengambil data wilayah
+    function getwilayah(){
+      $this->db->order_by('id_wilayah','ASC');
+      return $this->db->get('mst_wilayah');
+    }
     
   }

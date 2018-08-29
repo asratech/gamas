@@ -127,6 +127,25 @@ CREATE TABLE `mst_jenis_perizinan` (
 
 /*Data for the table `mst_jenis_perizinan` */
 
+/*Table structure for table `mst_perizinan` */
+
+DROP TABLE IF EXISTS `mst_perizinan`;
+
+CREATE TABLE `mst_perizinan` (
+  `kode_izin` varchar(50) DEFAULT NULL,
+  `wilayah` varchar(50) DEFAULT NULL,
+  `jenis_perizinan` varchar(250) DEFAULT NULL,
+  `createby` varchar(20) DEFAULT NULL,
+  `createdate` datetime DEFAULT NULL,
+  `updateby` varchar(20) DEFAULT NULL,
+  `updatedate` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `mst_perizinan` */
+
+insert  into `mst_perizinan`(`kode_izin`,`wilayah`,`jenis_perizinan`,`createby`,`createdate`,`updateby`,`updatedate`) values 
+('M.IZIN-0001','Jabodetabek','IJIN PEMAKAIAN PESAWAT ANGKAT & ANGKUT CAR','Ahmad Sopian','2018-08-29 16:40:38','Ahmad Sopian','2018-08-29 16:56:46');
+
 /*Table structure for table `mst_vendor` */
 
 DROP TABLE IF EXISTS `mst_vendor`;
@@ -143,14 +162,31 @@ CREATE TABLE `mst_vendor` (
   `createdate` datetime DEFAULT NULL,
   PRIMARY KEY (`id_vendor`),
   UNIQUE KEY `nama_vendor_UNIQUE` (`nama_vendor`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `mst_vendor` */
 
 insert  into `mst_vendor`(`id_vendor`,`kode_vendor`,`nama_vendor`,`alamat_vendor`,`telepon_vendor`,`email_vendor`,`nama_pic`,`createby`,`createdate`) values 
 (1,'VDR-0001','SOPIAN LAGI','JALAN SULTAN AGUNG','08210909012','sopian@sopi.com','SOPIAN','Ahmad Sopian',NULL),
 (2,'VDR-0002','TEST VENDOR','TEST ALAMAT VENDOR VERSI PANJANG','0812388989','ss@oke.com','SOPIAN','Ahmad Sopian',NULL),
-(3,'VDR-0003','TIRTA MAS GEMILANG','Jl.Raya Bekasi KM 28.5','081219093977','sopian@sopian.com','SOPIAN','Ahmad Sopian',NULL);
+(3,'VDR-0003','TIRTA MAS GEMILANG','Jl.Raya Bekasi KM 28.5','081219093977','sopian@sopian.com','SOPIAN','Ahmad Sopian',NULL),
+(6,'VDR-0004','TEST DATE','JL APA AJA BOLEH','08121909399','sopi@oke.com','SIP','Ahmad Sopian','2018-08-28 12:29:25');
+
+/*Table structure for table `mst_wilayah` */
+
+DROP TABLE IF EXISTS `mst_wilayah`;
+
+CREATE TABLE `mst_wilayah` (
+  `id_wilayah` varchar(20) DEFAULT NULL,
+  `nama_wilayah` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `mst_wilayah` */
+
+insert  into `mst_wilayah`(`id_wilayah`,`nama_wilayah`) values 
+('1','Jabodetabek'),
+('2','Jawa Timur'),
+('3','Pekanbaru');
 
 /*Table structure for table `users` */
 
@@ -175,8 +211,8 @@ CREATE TABLE `users` (
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`nama`,`alamat`,`wilayah`,`email`,`telp`,`username`,`password`,`level`,`last_login`,`avatar`,`active`) values 
-(1,'Ahmad Sopian','Jl.Sultan Agung','Jabodetabek','sopian.ahmad@suzuki-mobil.co.id','081219093977','administrator','$2y$10$B2ztsNPm8JZyGR/E12rRU.itsFuvdnYCsDg/L4SZ.xCx7usFzvXUG','administrator','2018-08-28 10:31:49','administrator_20170421152220.jpg','1'),
-(8,'','','Jabodetabek','shopyan.design@gmail.com','','testuser','$2y$10$dlPtkTIVk8NS2jMJetCJw.nhjx7QKyFhy3R9lgqB8zY5hpc7qZiO6','user','2018-08-27 08:56:14','noavatar.png','1');
+(1,'Ahmad Sopian','Jl.Sultan Agung','Jabodetabek','sopian.ahmad@suzuki-mobil.co.id','081219093977','administrator','$2y$10$B2ztsNPm8JZyGR/E12rRU.itsFuvdnYCsDg/L4SZ.xCx7usFzvXUG','administrator','2018-08-29 10:50:28','administrator_20170421152220.jpg','1'),
+(8,'Test User','Test User','Jabodetabek','shopyan.design@gmail.com','081138515858','testuser','$2y$10$dlPtkTIVk8NS2jMJetCJw.nhjx7QKyFhy3R9lgqB8zY5hpc7qZiO6','user','2018-08-28 12:16:01','noavatar.png','1');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

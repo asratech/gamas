@@ -23,6 +23,7 @@ class Users extends MY_Controller {
     $data['pageTitle'] = 'Users';
     $data['users'] = $this->model_users->get()->result();
     $data['pageContent'] = $this->load->view('users/userList', $data, TRUE);
+    
 
     // Jalankan view template/layout
     $this->load->view('template/layout', $data);
@@ -75,6 +76,8 @@ class Users extends MY_Controller {
 
         // Jalankan function insert pada model_users
         $query = $this->model_users->insert($data);
+        
+        
 
         // cek jika query berhasil
         if ($query) $message = array('status' => true, 'message' => 'Berhasil menambahkan user');
@@ -89,6 +92,7 @@ class Users extends MY_Controller {
     }
     
     // Data untuk page users/add
+    $data['wilayah'] = $this->model_users->getwilayah()->result();
     $data['pageTitle'] = 'Tambah Data User';
     $data['pageContent'] = $this->load->view('users/userAdd', $data, TRUE);
 

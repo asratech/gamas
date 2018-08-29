@@ -20,7 +20,7 @@
 		<script src="<?php echo base_url('assets/plugins/tinymce/tinymce.min.js'); ?>"></script>
 		<script src="<?php echo base_url('assets/plugins/sweetalert/sweetalert2.min.js'); ?>"></script>
 		<script src="<?php echo base_url('assets/materialize/js/materialize.js'); ?>"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/r-2.2.2/datatables.min.js"></script>
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<script src="<?php echo base_url('assets/js/kcdev.js'); ?>"></script>
 		<link re="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/sweetalert/sweetalert2.min.css'); ?>">
@@ -32,6 +32,7 @@
 			}
 		</script>
 		<script type="text/javascript">
+			responsive: true
 			$(document).ready(function() {
     		$('#data-table').DataTable( {
         	columnDefs: [

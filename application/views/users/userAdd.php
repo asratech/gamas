@@ -21,11 +21,16 @@
             </div>
           <?php endif; ?>
           <div class="input-field col s12 m6">
-              <select id="wilayah" name="wilayah">
-                  <option value="" disabled selected>Pilih Wilayah</option>
-                  <option value="Jabodetabek">Jabodetabek</option>
-                  <option value="Jawa Timur">Jawa Timur</option>
-              </select>
+            <select name="wilayah" id="wilayah"> 
+                <option value="">- Pilih Wilayah -</option>                               
+                  <?php
+                   if (!empty($wilayah)) {
+                    foreach ($wilayah as $row) {
+                        echo "<option value='".$row->nama_wilayah."'>".strtoupper($row->nama_wilayah)."</option>";                                        
+                    }
+                   }
+                  ?>
+              </select> 
               <label>Wilayah</label>
           </div>
           <div class="input-field col s12 m6">

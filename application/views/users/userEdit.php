@@ -21,9 +21,9 @@
             </div>
           <?php endif; ?>
           <div class="input-field col s12 m6">
-              <select id="wilayah" name="wilayah">
-                  <option <?php echo ($user->wilayah === 'Jabodetabek') ? 'selected' : ''; ?> value="Jabodetabek">Jabodetabek</option>
-                  <option <?php echo ($user->wilayah === 'Jawa Timur') ? 'selected' : ''; ?> value="Jawa Timur">Jawa Timur</option>
+              <select disable id="wilayah" name="wilayah">
+                  <option disabled selected <?php echo ($user->wilayah === 'Jabodetabek') ? 'selected' : ''; ?> value="Jabodetabek">Jabodetabek</option>
+                  <option disabled selected <?php echo ($user->wilayah === 'Jawa Timur') ? 'selected' : ''; ?> value="Jawa Timur">Jawa Timur</option>
               </select>
               <label>Wilayah</label>
           </div>
