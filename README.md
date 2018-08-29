@@ -13,3 +13,8 @@ Released under the terms of the MIT license.
 - Materialize Theme
 - Thanks for KCDEV.id
 - Developer by Ahmad Sopian
+
+## Donasi
+Rek.BCA   : 6630288884
+Atas Nama : Ahmad Sopian
+WhatsApp : 0812 1909 3977
